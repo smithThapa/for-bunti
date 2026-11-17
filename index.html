@@ -577,7 +577,6 @@ footer .h { color: var(--rose); }
       <svg class="heartbeat" viewBox="0 0 32 30" aria-hidden="true"><use href="#heart" fill="url(#gHeart)"/></svg>
       <div class="big foil rosefoil">I love you, baby.</div>
       <div class="sm">Come home to me soon</div>
-      <div class="row"><button class="btn solid" id="moreLove">Send more love</button><button class="btn" id="again">Read it again</button></div>
     </div>
   </section>
 </main>
@@ -851,8 +850,6 @@ document.documentElement.classList.replace('no-js', 'js');
   $('#relight').addEventListener('click', e => { e.stopPropagation(); candles.forEach(c => c.classList.remove('out')); granted.classList.remove('show'); granted.hidden = true; });
 
   /* ---------- Finale ---------- */
-  $('#moreLove').addEventListener('click', async e => { e.stopPropagation(); for (let i = 0; i < 5; i++) { firework(innerWidth * (.15 + Math.random() * .7), innerHeight * (.2 + Math.random() * .35)); chime(i); await wait(260); } rain(); });
-  $('#again').addEventListener('click', e => { e.stopPropagation(); scrollTo({ top: 0, behavior: 'smooth' }); hero.classList.remove('play'); void hero.offsetWidth; setTimeout(() => hero.classList.add('play'), 500); });
   const finIO = new IntersectionObserver(es => es.forEach(en => { if (en.isIntersecting) { setTimeout(() => { firework(innerWidth / 2, innerHeight * .35); }, 600); finIO.disconnect(); } }), { threshold: .5 });
   finIO.observe($('#finale'));
 
